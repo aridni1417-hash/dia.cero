@@ -583,7 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
           <span style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-family: var(--font-mono);">Plano Técnico Estructural (NIST / Minoru Yamasaki & Leslie Robertson)</span>
-          <img src="images/wtc-structure-drawing.png" alt="Esquema estructural auténtico del Framed Tube de las Torres Gemelas" style="max-height: 240px; width: auto; border-radius: 4px; filter: contrast(125%) brightness(95%);" loading="lazy">
+          <img src="wtc-structure-drawing.png" alt="Esquema estructural auténtico del Framed Tube de las Torres Gemelas" style="max-height: 240px; width: auto; border-radius: 4px; filter: contrast(125%) brightness(95%);" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='images/wtc-structure-drawing.png';}">
         </div>
       </div>
       `
@@ -746,7 +746,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="display: flex; flex-direction: column; gap: 1.25rem;">
           ${data.img ? `
           <div style="border-radius: 8px; overflow: hidden; max-height: 210px; border: 1px solid rgba(255,255,255,0.08); background: #000;">
-            <img src="${data.img}" alt="${data.imgAlt}" style="width: 100%; height: 210px; object-fit: cover; object-position: center;" loading="lazy">
+            <img src="${data.img}" alt="${data.imgAlt}" style="width: 100%; height: 210px; object-fit: cover; object-position: center;" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src=this.src.indexOf('images/')!==-1?this.src.replace('images/',''):'images/'+this.src.split('/').pop();}">
           </div>
           ` : ''}
 
@@ -782,7 +782,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `
       );
     });
-  }
+  });
 
   // ==========================================================================
   // 9. MAPA INTERACTIVO GEOGRÁFICO Y TOOLTIPS
